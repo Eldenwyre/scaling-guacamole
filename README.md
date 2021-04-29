@@ -143,8 +143,44 @@ Core script for functionality:
 
 # Implant Commands and Design
 
+Aside from adding itself as a cron task, it can do the following commands upon request. Most commands work cross platform as they're pure python, however some have diminished success such as the info macro. Primarily targets linux, can be adapted to other platforms with minor tweaks. 
+
 ## Info Macro
+Detailed by the word "scarlet" in the story
+Returns some useful information about the system
+Sends info to the burner email 
 
-## Command Execution
+![infopng](screenshots/info.png)
 
-## 
+> "{"scarlet": ["Linux", "fail-not", "5.11.0-7612-generic", "#13~1617215757~20.10~97a8d1a-Ubuntu SMP Thu Apr 1 21:09:17 UTC 2", "x86_64", "x86_64"]}"
+
+## Command Execution and File Exfiltration
+
+Capable of extracting information from the base-64 encoded pastebins detailed in the story. Note: there are separate pastebins for the command execution and file exfiltration. For instance, this grabbed the image from the repo from earlier and executed a few useful commands. 
+
+![EmailCMDandExfil](screenshots/emailed-and-file.png)
+
+>{"marketplace": "total 48\ndrwxrwxr-x 5 miles miles 4096 Apr 29 05:39 .\ndrwxrwxr-x 9 miles miles 4096 Apr 29 03:55 ..\ndrwxrwxr-x 4 miles miles 4096 Apr 29 03:55 build\ndrwxrwxr-x 2 miles miles 4096 Apr 29 05:16 dist\n-rw-rw-r-- 1 miles miles 1097 Apr 29 05:07 e-mail.py\n-rw-rw-r-- 1 miles miles 7027 Apr 29 05:35 .implant.py\n-rw-rw-r-- 1 miles miles 7086 Apr 29 05:48 implant.py\n-rw-rw-r-- 1 miles miles  885 Apr 29 05:16 implant.spec\ndrwxrwxr-x 2 miles miles 4096 Apr 29 05:16 pycache\n-rw-rw-r-- 1 miles miles  879 Apr 29 03:55 test.spec\n/home/miles/coding/school/cs4001/scaling-guacamole/test\nhello\n", "Max Ter'Forg'r": "/home/miles/coding/school/cs4001/scaling-guacamole/screenshots/myip.png"}
+
+
+## Evasion by Hiding
+Will move itself to be hiden by renaming its file into .FILE
+Does this regardless of location and regardless of if it is a built script using something like pyinstaller or a loose pyscript.
+
+Before:
+
+![hidebefore](screenshots/before-hide.png)
+
+After:
+
+![hideafter](screenshots/after-recieving-hide.png)
+
+## Self-Destruction
+Implant is capable of self destructing upon recieving "french-bread". It is deathly allergic. Will remove itself and kill its own process.
+
+![beforekill](screenshots/ran-both-then-killed.png)
+
+![kannagun](screenshots/gun.jpeg)
+
+![afterkill](screenshots/after-kill-command.png)
+
