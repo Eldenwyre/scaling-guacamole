@@ -66,7 +66,7 @@ but when I ssh into the server it's a different torified IP
 ![tor-ip](screenshots/torified-ip.png)
 
 This greatly helps in distancing operators from the C2 server at the cost of some speed for the SSH connection; however, the small speed loss is worth the gain in OPSEC. 
-
+***************
 # C2 Commands and Scripts
 * Mostly done through macros
 * Done to not have to manually edit story/post gists by hand
@@ -133,3 +133,18 @@ And edit the gist with the script to post/edit the stories
 And now it can be seen that there are two stories, with Eldenwyre's being editted.
 
 ![Edited](screenshots/editted-gist.png)
+
+## Hosting the listener shell
+Core script for functionality: 
+
+![Shell-cc](screenshots/cc-shell.png)
+
+******************************
+
+# Implant Commands and Design
+
+## Info Macro
+
+## Command Execution
+
+## 
