@@ -135,7 +135,7 @@ And now it can be seen that there are two stories, with Eldenwyre's being editte
 ![Edited](screenshots/editted-gist.png)
 
 ## Hosting the listener shell
-Core script for functionality: 
+Core script for functionality: [listener.py](cc/src/listener.py)
 
 ![Shell-cc](screenshots/cc-shell.png)
 
