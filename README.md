@@ -146,7 +146,8 @@ Core script for functionality: [listener.py](cc/src/listener.py)
 
 # Implant Commands and Design
 
-Aside from adding itself as a cron task, it can do the following commands upon request. Most commands work cross platform as they're pure python, however some have diminished success such as the info macro. Primarily targets linux, can be adapted to other platforms with minor tweaks. 
+Most commands work cross platform as they're pure python, however some have diminished success such as the info macro. Primarily targets linux, can be adapted to other platforms with minor tweaks. Cron only tested on linux platforms.
+
 
 ## Basic Persistence
 
@@ -205,3 +206,14 @@ Implant is capable of self destructing upon receiving "french-bread". It is deat
 
 ![afterkill](screenshots/after-kill-command.png)
 
+## Packaging
+
+Can be packaged into a single file using something like [pyinstaller](https://www.pyinstaller.org/)
+
+## Potential Avenues
+
+A few simple expansions can be made depending on the needs:
+
+Can be packaged into an APK using something like Kivy/buildozer. But would need some underlying app development, just something simple would suffice. Would allow for persistence on android devices using the ACTION_BOOT_COMPLETED intent.
+
+Minor tweaking can fix the issues with hiding and cron tasks on Windows after an OS check and then special implementation. I, however, did not have a need for this and thus didn't explicity implement this. Everything else nearly worked natively since I was designing the build around pure-python.
