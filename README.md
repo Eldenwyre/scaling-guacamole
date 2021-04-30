@@ -1,4 +1,7 @@
 # Operation Static Analytics - Preparation
+
+###### To Be (Hopefully) Implemented Soon (Planned Features)
+Some future plans to be implemented: Central Gist burning and revival (transferring central), Web Server on C2 for potential Social Engineering Shenanigans, Typical AV/Reversing program scanning -- (warning op/self detonate if unable to kill the processes)
 ****************************************************************
 # Communication Plans
 
@@ -145,6 +148,14 @@ Core script for functionality: [listener.py](cc/src/listener.py)
 
 Aside from adding itself as a cron task, it can do the following commands upon request. Most commands work cross platform as they're pure python, however some have diminished success such as the info macro. Primarily targets linux, can be adapted to other platforms with minor tweaks. 
 
+## Basic Persistence
+
+Implant will attempt to add itself as a cronjob with current permissions at launch. 
+
+Example of the cronjob being added
+
+![cron](screenshots/cronjob.png)
+
 ## Info Macro
 Detailed by the word "scarlet" in the story
 Returns some useful information about the system
@@ -153,6 +164,16 @@ Sends info to the burner email
 ![infopng](screenshots/info.png)
 
 > "{"scarlet": ["Linux", "fail-not", "5.11.0-7612-generic", "#13~1617215757~20.10~97a8d1a-Ubuntu SMP Thu Apr 1 21:09:17 UTC 2", "x86_64", "x86_64"]}"
+
+## Shell
+Only portion that directly could connect to C2 server or operator, though could be connected to any machine capable of running [listener.py](cc/src/listener.py)
+
+Basic reverse shell that's encrypted with Base64 both ways. 
+
+Example of code being run from shell: 
+
+![shell](screenshots/cc-shell.png)
+
 
 ## Command Execution and File Exfiltration
 

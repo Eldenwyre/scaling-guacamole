@@ -162,7 +162,7 @@ def parse_story(story):
         return_dict['hilda'] = "Hidden :)"
     # Handle Info
     if "scarlet" in story:
-        return_dict["scarlet"] = platform.uname()
+        return_dict["scarlet"] = json.dumps(platform.uname())
     # Handle Market
     if "marketplace" in story:
         bin_link = parse_marketplace(story)
