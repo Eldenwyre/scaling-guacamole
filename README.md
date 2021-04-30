@@ -164,7 +164,7 @@ Capable of extracting information from the base-64 encoded pastebins detailed in
 
 
 ## Evasion by Hiding
-Will move itself to be hiden by renaming its file into .FILE
+Will move itself to be hidden by renaming its file into .FILE
 Does this regardless of location and regardless of if it is a built script using something like pyinstaller or a loose pyscript.
 
 Before:
@@ -176,7 +176,7 @@ After:
 ![hideafter](screenshots/after-recieving-hide.png)
 
 ## Self-Destruction
-Implant is capable of self destructing upon recieving "french-bread". It is deathly allergic. Will remove itself and kill its own process.
+Implant is capable of self destructing upon receiving "french-bread". It is deathly allergic. Will remove itself and kill its own process.
 
 ![beforekill](screenshots/ran-both-then-killed.png)
 
